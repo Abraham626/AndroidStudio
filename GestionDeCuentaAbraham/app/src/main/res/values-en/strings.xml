@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Bill Manager</string>
+    <string name="camarero">Waiter name</string>
+    <string name="total_cuenta">Bill total</string>
+    <string name="incluir_propina">Include tip</string>
+    <string name="propina_inicial">Tip: 10%</string>
+    <string name="propina">Tip:</string>
+    <string name="efectivo">Cash</string>
+    <string name="tarjeta">Card</string>
+    <string name="calcular">Calculate</string>
+    <string name="total">Total:</string>
+    <string name="pago">Payment:</string>
+    <string name="calificacion">Rating:</string>
+    <string name="error_vacio">The bill amount is missing</string>
+    <string name="error_formato">The number format is not valid</string>
+    <string name="error_minimo">The bill must be greater than 0</string>
+    <string name="error_pago">Choose a payment method (Cash or Card)</string>
+</resources>
