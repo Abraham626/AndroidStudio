@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView resultado;
     private double valorMemoria = 0;
     private String operacionActual = "";
+    private String primeraParte = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         botonDecimales.setOnClickListener(v -> agregarDigito("."));
 
-        botonAC.setOnClickListener(v -> resultado.setText("0"));
+        botonAC.setOnClickListener(v -> borrarTodo());
         botonC.setOnClickListener(v -> borraUltimoNumero());
 
         botonSumar.setOnClickListener(v -> apretarOperacion("+"));
@@ -60,18 +61,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private String numeroEscrito() {
+        String pantalla = resultado.getText().toString();
+        return pantalla.substring(primeraParte.length());
+    }
+
     private void agregarDigito(String digito) {
-        String resultadoAnterior = resultado.getText().toString();
-        String actual = resultadoAnterior;
+        String actual = numeroEscrito();
 
         switch (digito) {
             case "0":
                 if (!actual.equals("0"))
                     actual += "0";
                 break;
-            case ",":
-                if (!actual.contains(","))
-                    actual += ",";
+            case ".":
+                if (actual.equals(""))
+                    actual = "0.";
+                else if (!actual.contains("."))
+                    actual += ".";
                 break;
 
             // El resto
@@ -82,68 +89,69 @@ public class MainActivity extends AppCompatActivity {
                     actual += digito;
         }
 
-        resultado.setText(actual);
+        resultado.setText(primeraParte + actual);
     }
 
     private void borraUltimoNumero () {
-        String actual = resultado.getText().toString();
+        String actual = numeroEscrito();
 
         if (actual.length() > 1)
             actual = actual.substring(0, actual.length() - 1);
-        else
+        else if (primeraParte.equals(""))
             actual = "0";
+        else
+            actual = "";
 
-        resultado.setText(actual);
+        resultado.setText(primeraParte + actual);
+    }
+
+    private void borrarTodo() {
+        primeraParte = "";
+        operacionActual = "";
+        valorMemoria = 0;
+        resultado.setText("0");
+    }
+
+    private String formatear(double numero) {
+        if (numero == (long) numero)
+            return String.valueOf((long) numero);
+        else
+            return String.valueOf(numero);
     }
 
     private void apretarOperacion(String operacion) {
-        switch (operacion) {
-            case "+":
-                valorMemoria = Double.parseDouble(resultado.getText().toString());
-                operacionActual = "+";
-                resultado.setText("0");
-                break;
-            case "-":
-                valorMemoria = Double.parseDouble(resultado.getText().toString());
-                operacionActual = "-";
-                resultado.setText("0");
-                break;
-            case "/":
-                valorMemoria = Double.parseDouble(resultado.getText().toString());
-                operacionActual = "/";
-                resultado.setText("0");
-                break;
-            case "*":
-                valorMemoria = Double.parseDouble(resultado.getText().toString());
-                operacionActual = "*";
-                resultado.setText("0");
-                break;
-            case "=":
-                Double segundoValor = Double.parseDouble(resultado.getText().toString());
-                Double actual;
-                switch (operacionActual) {
-                    case "+":
-                        actual = valorMemoria + segundoValor;
-                        resultado.setText(actual.toString());
-                        operacionActual = "";
-                        break;
-                    case "-":
-                        actual = valorMemoria - segundoValor;
-                        resultado.setText(actual.toString());
-                        operacionActual = "";
-                        break;
-                    case "/":
-                        actual = valorMemoria / segundoValor;
-                        resultado.setText(actual.toString());
-                        operacionActual = "";
-                        break;
-                    case "*":
-                        actual = valorMemoria * segundoValor;
-                        resultado.setText(actual.toString());
-                        operacionActual = "";
-                        break;
-                }
-                break;
+        String numero = numeroEscrito();
+
+        if (numero.equals(""))
+            return;
+
+        if (operacion.equals("=")) {
+            double segundoValor = Double.parseDouble(numero);
+            double actual = segundoValor;
+
+            switch (operacionActual) {
+                case "+":
+                    actual = valorMemoria + segundoValor;
+                    break;
+                case "-":
+                    actual = valorMemoria - segundoValor;
+                    break;
+                case "/":
+                    actual = valorMemoria / segundoValor;
+                    break;
+                case "*":
+                    actual = valorMemoria * segundoValor;
+                    break;
+            }
+
+            primeraParte = "";
+            operacionActual = "";
+            resultado.setText(formatear(actual));
+        } else {
+            valorMemoria = Double.parseDouble(numero);
+            operacionActual = operacion;
+            primeraParte = formatear(valorMemoria) + " " + operacion + " ";
+            resultado.setText(primeraParte);
         }
     }
 }
