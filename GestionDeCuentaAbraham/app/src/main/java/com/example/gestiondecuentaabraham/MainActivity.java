@@ -47,9 +47,12 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, camareros);
         autoCompleteCamarero.setAdapter(adaptador);
 
-        /* En esto me he ayudado de la IA ya que no sabia que el OnSeekBarChangeListener obliga a poner sus 3 métodos aunque no se usen todos.
+        /*
+        En esto me he ayudado de la IA ya que no sabia que el OnSeekBarChangeListener obliga a
+        poner sus 3 métodos aunque no se usen todos.
         onProgressChanged se ejecuta al mover la barra y es el que actualiza el porcentaje.
-        onStartTrackingTouch (al tocar la barra) y onStopTrackingTouch (al soltarla) se dejan vacíos porque no hace falta hacer nada ahí, pero si se borran da error
+        onStartTrackingTouch (al tocar la barra) y onStopTrackingTouch (al soltarla) se dejan
+        vacíos porque no hace falta hacer nada ahí, pero si se borran da error
        */
         seekBarPropina.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -102,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 if (selectedId == -1) {
                     textViewResultado.setTextColor(Color.RED);
                     /*
-                    E esto he usado IA porque en los mensajes de alerta de color rojo no me lo
+                    En esto he usado IA porque en los mensajes de alerta de color rojo no me lo
                     traducía al English y siempre estaba en español y no sabía solucionarlo entonces
                     le pedí a la IA que me lo explicara
                      */
@@ -115,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
 
                 textViewResultado.setTextColor(Color.BLACK);
                 /*
-                he usado IA para que redondear a dos decimales porque con algunos números el total sale con muchos decimales y no sabía arreglarlo.
+                he usado IA para que redondear a dos decimales porque con algunos números el total
+                sale con muchos decimales y no sabía arreglarlo.
                 */
                 textViewResultado.setText(getString(R.string.total) + " " + String.format("%.2f", cuenta + propina) + " € - " + getString(R.string.pago) + " " + pago + " - " + getString(R.string.calificacion) + " " + ratingBar.getRating());            }
         });

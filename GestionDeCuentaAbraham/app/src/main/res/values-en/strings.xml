@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Bill Manager</string>
+    <string name="titulo">Bill</string>
     <string name="camarero">Waiter name</string>
     <string name="total_cuenta">Bill total</string>
     <string name="incluir_propina">Include tip</string>
