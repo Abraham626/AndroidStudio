@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="🍽️"
+                android:textSize="56sp" />
+
+            <TextView
+                android:id="@+id/textViewTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.03"
+                android:shadowColor="#553B82F6"
+                android:shadowDx="0"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="@string/titulo"
+                android:textColor="#1E3A8A"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Calcula tu cuenta y la propina"
+                android:textColor="#64748B"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="60dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="28dp"
+                android:background="#3B82F6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.12"
+                android:text="💶  DATOS DE LA CUENTA"
+                android:textColor="#64748B"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/editTextTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:backgroundTint="#3B82F6"
+                android:hint="@string/total_cuenta"
+                android:inputType="numberDecimal"
+                android:textColor="#0F172A"
+                android:textColorHint="#94A3B8"
+                android:textSize="18sp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteCamarero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#3B82F6"
+                android:completionThreshold="3"
+                android:hint="@string/camarero"
+                android:textColor="#0F172A"
+                android:textColorHint="#94A3B8"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="22dp"
+                android:background="#E2E8F0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.12"
+                android:text="💡  PROPINA"
+                android:textColor="#64748B"
+                android:textSize="13sp" />
+
+            <CheckBox
+                android:id="@+id/checkBoxPropina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#1E3A8A"
+                android:text="@string/incluir_propina"
+                android:textColor="#0F172A"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/textViewPorcentaje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/propina_inicial"
+                android:textColor="#3B82F6"
+                android:textSize="20sp" />
+
+            <SeekBar
+                android:id="@+id/seekBarPropina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:max="100"
+                android:progress="10"
+                android:progressBackgroundTint="#CBD5E1"
+                android:progressTint="#3B82F6"
+                android:thumbTint="#1E3A8A" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="22dp"
+                android:background="#E2E8F0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.12"
+                android:text="💳  FORMA DE PAGO"
+                android:textColor="#64748B"
+                android:textSize="13sp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupPago"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButtonEfectivo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:buttonTint="#1E3A8A"
+                    android:text="@string/efectivo"
+                    android:textColor="#0F172A"
+                    android:textSize="17sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonTarjeta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#1E3A8A"
+                    android:text="@string/tarjeta"
+                    android:textColor="#0F172A"
+                    android:textSize="17sp" />
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="22dp"
+                android:background="#E2E8F0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.12"
+                android:text="⭐  VALORA EL SERVICIO"
+                android:textColor="#64748B"
+                android:textSize="13sp" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:numStars="5"
+                android:stepSize="1"
+                android:progressBackgroundTint="#CBD5E1"
+                android:progressTint="#F59E0B" />
+
+            <Button
+                android:id="@+id/buttonCalcular"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="#1E3A8A"
+                android:elevation="6dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.05"
+                android:text="@string/calcular"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:cornerRadius="31dp" />
+
+            <TextView
+                android:id="@+id/textViewResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:shadowColor="#553B82F6"
+                android:shadowDx="0"
+                android:shadowDy="3"
+                android:shadowRadius="6"
+                android:textColor="#1E3A8A"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Gracias por su visita 😊"
+                android:textColor="#94A3B8"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Gestión de Cuenta</string>
+    <string name="titulo">Cuenta</string>
+    <string name="camarero">Nombre del camarero</string>
+    <string name="total_cuenta">Importe total (€)</string>
+    <string name="incluir_propina">Incluir propina</string>
+    <string name="propina_inicial">Propina: 10%</string>
+    <string name="propina">Propina:</string>
+    <string name="efectivo">Efectivo</string>
+    <string name="tarjeta">Tarjeta</string>
+    <string name="calcular">Calcular</string>
+    <string name="total">Total:</string>
+    <string name="pago">Pago:</string>
+    <string name="calificacion">Calificación:</string>
+    <string name="error_vacio">Falta meter el valor de la cuenta</string>
+    <string name="error_formato">El formato numérico no es válido</string>
+    <string name="error_minimo">La cuenta tiene que ser mayor que 0</string>
+    <string name="error_pago">Elige un método de pago (Efectivo o Tarjeta)</string>
+</resources>
