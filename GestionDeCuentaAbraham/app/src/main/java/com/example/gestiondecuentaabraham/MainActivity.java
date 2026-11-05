@@ -119,7 +119,8 @@ public class MainActivity extends AppCompatActivity {
                 textViewResultado.setTextColor(Color.parseColor("#1E3A8A"));
                 /*
                 he usado IA para que redondear a dos decimales porque con algunos números el total
-                sale con muchos decimales y no sabía arreglarlo.
+                sale con muchos decimales y no sabía arreglarlo y para mejorar un poco la estética
+                del resultado separándolo en varias líneas y añadiendo emojis.
                 */
                 textViewResultado.setText("💰 Total: " + String.format("%.2f", cuenta + propina) + " €\n💵 Pago: " + pago + "\n⭐ Valoración: " + ratingBar.getRating());
             }

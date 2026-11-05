@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+He usado IA para mejorar un poco la estética de la aplicación como los colores,
+los tamaños de letra y los espacios entre elementos y para añadir los emojis
+de los títulos y del resultado.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
