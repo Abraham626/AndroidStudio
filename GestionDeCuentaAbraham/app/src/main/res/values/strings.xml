@@ -2,7 +2,7 @@
     <string name="app_name">Gestión de Cuenta</string>
     <string name="titulo">Cuenta</string>
     <string name="camarero">Nombre del camarero</string>
-    <string name="total_cuenta">Total de la cuenta</string>
+    <string name="total_cuenta">Importe total (€)</string>
     <string name="incluir_propina">Incluir propina</string>
     <string name="propina_inicial">Propina: 10%</string>
     <string name="propina">Propina:</string>
