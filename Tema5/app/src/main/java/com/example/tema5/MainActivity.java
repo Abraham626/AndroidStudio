@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
 
         List<String> data = Arrays.asList("Elemento 1", "Elemento 2", "Elemento 3", "Elemento 4");
 
-        ListView listView = findViewById(R.id.ListView);
+        GridView gridView = findViewById(R.id.GridView);
         TextView texto = findViewById(R.id.texto);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, data);
-        listView.setAdapter(adapter);
+        gridView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int posicion, long l) {
                 String elemento = (String) parent.getItemAtPosition(posicion);
