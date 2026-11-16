@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class Adaptador extends ArrayAdapter<Datos> {
 
-    private Datos[] datos;
+    private List<Datos> datos;
 
-    public Adaptador(Context context, Datos[] datos) {
+    public Adaptador(Context context, List<Datos> datos) {
         super(context, R.layout.elemento, datos);
         this.datos = datos;
     }
@@ -25,8 +27,8 @@ public class Adaptador extends ArrayAdapter<Datos> {
         TextView text1 = elemento.findViewById(R.id.text1);
         TextView text2 = elemento.findViewById(R.id.text2);
         //Configurar los datos
-        text1.setText(datos[position].getTexto1());
-        text2.setText(datos[position].getTexto2());
+        text1.setText(datos.get(position).getTexto1());
+        text2.setText(datos.get(position).getTexto2());
         return elemento;
     }
 }
